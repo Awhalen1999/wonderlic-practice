@@ -1058,5 +1058,1355 @@
     "answer": 2,
     "explanation": "CIFENST rearranged is INSECTS. Insects is a category of animals, but the specific answer is Insect.",
     "difficulty": "medium"
+  },
+  {
+    "id": 116,
+    "category": "math",
+    "question": "A train travels 25 feet in 1/3 second. At this rate, how many feet will it travel in 4 seconds?",
+    "options": ["75", "150", "300", "600"],
+    "answer": 2,
+    "explanation": "Rate = 25 ÷ (1/3) = 75 feet per second. 75 × 4 = 300 feet.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 117,
+    "category": "math",
+    "question": "A total of 84 hours was spent training 6 new employees. At this rate, how many hours would it take to train 5 more employees?",
+    "options": ["56", "60", "70", "72"],
+    "answer": 2,
+    "explanation": "84 ÷ 6 = 14 hours per employee. 14 × 5 = 70 hours.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 118,
+    "category": "math",
+    "question": "What is 7% of 800?",
+    "options": ["5.6", "56", "560", "0.56"],
+    "answer": 1,
+    "explanation": "7% of 800 = 0.07 × 800 = 56.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 119,
+    "category": "math",
+    "question": "If a car travels at 55 mph, how many miles will it travel in 3 hours and 30 minutes?",
+    "options": ["165", "172.5", "192.5", "200"],
+    "answer": 2,
+    "explanation": "3.5 hours × 55 mph = 192.5 miles.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 120,
+    "category": "math",
+    "question": "If 5 workers can complete a job in 8 days, how many days will it take 10 workers to complete the same job?",
+    "options": ["2", "3", "4", "6"],
+    "answer": 2,
+    "explanation": "Total work = 5 × 8 = 40 worker-days. 40 ÷ 10 workers = 4 days.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 121,
+    "category": "math",
+    "question": "What is the average of 12, 18, 24, and 30?",
+    "options": ["18", "20", "21", "22"],
+    "answer": 2,
+    "explanation": "(12 + 18 + 24 + 30) ÷ 4 = 84 ÷ 4 = 21.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 122,
+    "category": "math",
+    "question": "A pump fills a tank in 6 hours. A second pump fills the same tank in 4 hours. How many hours if both run together?",
+    "options": ["1.8", "2.0", "2.4", "3.0"],
+    "answer": 2,
+    "explanation": "Combined rate = 1/6 + 1/4 = 5/12 per hour. Time = 12/5 = 2.4 hours.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 123,
+    "category": "math",
+    "question": "A rope is 15 feet long and is cut into pieces each 1.25 feet long. How many pieces are there?",
+    "options": ["10", "11", "12", "15"],
+    "answer": 2,
+    "explanation": "15 ÷ 1.25 = 12 pieces.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 124,
+    "category": "math",
+    "question": "Susan drove 180 miles in 3 hours. At the same rate, how many miles will she drive in 5 hours?",
+    "options": ["250", "270", "300", "360"],
+    "answer": 2,
+    "explanation": "Rate = 180 ÷ 3 = 60 mph. 60 × 5 = 300 miles.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 125,
+    "category": "math",
+    "question": "A store marks up merchandise by 30%. If an item costs $50, what is the selling price?",
+    "options": ["$55", "$60", "$65", "$70"],
+    "answer": 2,
+    "explanation": "$50 × 1.30 = $65.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 126,
+    "category": "math",
+    "question": "What is 2/3 + 1/4?",
+    "options": ["3/7", "7/12", "11/12", "1"],
+    "answer": 2,
+    "explanation": "Common denominator 12: 8/12 + 3/12 = 11/12.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 127,
+    "category": "math",
+    "question": "How many minutes are in 3.5 hours?",
+    "options": ["180", "200", "210", "240"],
+    "answer": 2,
+    "explanation": "3.5 × 60 = 210 minutes.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 128,
+    "category": "math",
+    "question": "A number increased by 15 equals 47. What is the number?",
+    "options": ["22", "28", "32", "36"],
+    "answer": 2,
+    "explanation": "47 − 15 = 32.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 129,
+    "category": "math",
+    "question": "A worker earns $9.50 an hour, 8 hours a day, 5 days a week. What is the weekly salary?",
+    "options": ["$340", "$360", "$380", "$420"],
+    "answer": 2,
+    "explanation": "$9.50 × 8 × 5 = $380.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 130,
+    "category": "math",
+    "question": "A car depreciates 20% in its first year. If it originally costs $25,000, what is its value after one year?",
+    "options": ["$15,000", "$18,000", "$20,000", "$22,000"],
+    "answer": 2,
+    "explanation": "$25,000 × 0.80 = $20,000.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 131,
+    "category": "math",
+    "question": "What is 5 squared minus 4 squared?",
+    "options": ["1", "3", "7", "9"],
+    "answer": 3,
+    "explanation": "5² = 25, 4² = 16. 25 − 16 = 9.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 132,
+    "category": "math",
+    "question": "A class has 24 students. If 3/8 of them are boys, how many are girls?",
+    "options": ["9", "12", "14", "15"],
+    "answer": 3,
+    "explanation": "Boys = 3/8 × 24 = 9. Girls = 24 − 9 = 15.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 133,
+    "category": "math",
+    "question": "A recipe calls for 2.5 cups of flour to make 24 cookies. How much flour is needed for 60 cookies?",
+    "options": ["5 cups", "5.5 cups", "6 cups", "6.25 cups"],
+    "answer": 3,
+    "explanation": "Ratio: 60/24 = 2.5. 2.5 × 2.5 = 6.25 cups.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 134,
+    "category": "math",
+    "question": "If Maria's salary is $45,000 and she gets a 5% raise, what is her new annual salary?",
+    "options": ["$45,225", "$46,500", "$47,000", "$47,250"],
+    "answer": 3,
+    "explanation": "$45,000 × 1.05 = $47,250.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 135,
+    "category": "math",
+    "question": "If a store sells 240 items per day, how many items will it sell in a 30-day month?",
+    "options": ["6,400", "6,800", "7,000", "7,200"],
+    "answer": 3,
+    "explanation": "240 × 30 = 7,200.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 136,
+    "category": "math",
+    "question": "What is 125% of 80?",
+    "options": ["90", "95", "100", "110"],
+    "answer": 2,
+    "explanation": "80 × 1.25 = 100.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 137,
+    "category": "math",
+    "question": "If the sum of three consecutive even numbers is 48, what is the smallest?",
+    "options": ["12", "14", "16", "18"],
+    "answer": 1,
+    "explanation": "Let n, n+2, n+4. 3n + 6 = 48 → n = 14.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 138,
+    "category": "math",
+    "question": "A car uses 4 gallons of gas to travel 96 miles. How many miles per gallon does it get?",
+    "options": ["20", "22", "24", "26"],
+    "answer": 2,
+    "explanation": "96 ÷ 4 = 24 mpg.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 139,
+    "category": "math",
+    "question": "A jar contains 5 quarters and 8 dimes. What is the total amount of money?",
+    "options": ["$1.85", "$2.05", "$2.25", "$2.45"],
+    "answer": 1,
+    "explanation": "5 × $0.25 + 8 × $0.10 = $1.25 + $0.80 = $2.05.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 140,
+    "category": "math",
+    "question": "What is the least common multiple of 4 and 6?",
+    "options": ["8", "10", "12", "24"],
+    "answer": 2,
+    "explanation": "Multiples of 4: 4, 8, 12… Multiples of 6: 6, 12… LCM = 12.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 141,
+    "category": "math",
+    "question": "If a man walks 3 miles in 45 minutes, how far will he walk in 2 hours?",
+    "options": ["6", "7", "8", "9"],
+    "answer": 2,
+    "explanation": "Rate = 3/45 = 1/15 miles per minute. 120 minutes × 1/15 = 8 miles.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 142,
+    "category": "math",
+    "question": "What is 15% tip on a $42 bill?",
+    "options": ["$5.25", "$6.00", "$6.30", "$7.00"],
+    "answer": 2,
+    "explanation": "$42 × 0.15 = $6.30.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 143,
+    "category": "math",
+    "question": "A 45-foot pole casts a shadow of 30 feet. How long is the shadow of a 9-foot pole at the same time?",
+    "options": ["4", "5", "6", "7"],
+    "answer": 2,
+    "explanation": "Ratio: 30/45 = 2/3. Shadow = 9 × 2/3 = 6 feet.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 144,
+    "category": "math",
+    "question": "A store buys a product for $40 and marks it up 50%. What is the selling price?",
+    "options": ["$55", "$60", "$65", "$80"],
+    "answer": 1,
+    "explanation": "$40 × 1.50 = $60.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 145,
+    "category": "math",
+    "question": "What is 3/8 expressed as a decimal?",
+    "options": ["0.25", "0.30", "0.375", "0.40"],
+    "answer": 2,
+    "explanation": "3 ÷ 8 = 0.375.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 146,
+    "category": "math",
+    "question": "The price of a jacket was $80. After a 25% discount, what is the new price?",
+    "options": ["$20", "$55", "$60", "$65"],
+    "answer": 2,
+    "explanation": "$80 × 0.75 = $60.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 147,
+    "category": "math",
+    "question": "What number is 25 less than the product of 8 and 7?",
+    "options": ["21", "23", "31", "33"],
+    "answer": 2,
+    "explanation": "8 × 7 = 56. 56 − 25 = 31.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 148,
+    "category": "math",
+    "question": "What is the product of 23 and 17?",
+    "options": ["381", "391", "396", "401"],
+    "answer": 1,
+    "explanation": "23 × 17 = 23 × 10 + 23 × 7 = 230 + 161 = 391.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 149,
+    "category": "math",
+    "question": "If 12 is 30% of a number, what is the number?",
+    "options": ["30", "36", "40", "48"],
+    "answer": 2,
+    "explanation": "12 = 0.30 × n → n = 12 ÷ 0.30 = 40.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 150,
+    "category": "math",
+    "question": "What is 4/5 as a percentage?",
+    "options": ["40%", "60%", "75%", "80%"],
+    "answer": 3,
+    "explanation": "4 ÷ 5 = 0.80 = 80%.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 151,
+    "category": "verbal",
+    "question": "CANDID most nearly means:",
+    "options": ["Clever", "Frank", "Reserved", "Cautious"],
+    "answer": 1,
+    "explanation": "Candid means frank or outspoken; honest and straightforward.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 152,
+    "category": "verbal",
+    "question": "IMPEDE most nearly means:",
+    "options": ["Help", "Hinder", "Improve", "Insist"],
+    "answer": 1,
+    "explanation": "To impede means to obstruct or hinder progress.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 153,
+    "category": "verbal",
+    "question": "Which word is the antonym of GENEROUS?",
+    "options": ["Kind", "Giving", "Stingy", "Benevolent"],
+    "answer": 2,
+    "explanation": "Stingy (unwilling to give) is the opposite of generous.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 154,
+    "category": "verbal",
+    "question": "BENEVOLENT most nearly means:",
+    "options": ["Harsh", "Strict", "Charitable", "Envious"],
+    "answer": 2,
+    "explanation": "Benevolent means well-meaning and kindly; charitable.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 155,
+    "category": "verbal",
+    "question": "Are the following two words similar, contradictory, or not related? COMMENCE — BEGIN",
+    "options": ["Similar", "Contradictory", "Not related", "Uncertain"],
+    "answer": 0,
+    "explanation": "Commence and begin are synonyms — both mean to start.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 156,
+    "category": "verbal",
+    "question": "Are the following two words similar, contradictory, or not related? EXPANSION — CONTRACTION",
+    "options": ["Similar", "Contradictory", "Not related", "Uncertain"],
+    "answer": 1,
+    "explanation": "Expansion (growing larger) and contraction (becoming smaller) are opposites.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 157,
+    "category": "verbal",
+    "question": "TENACIOUS most nearly means:",
+    "options": ["Fragile", "Persistent", "Temporary", "Fearful"],
+    "answer": 1,
+    "explanation": "Tenacious means persistent; holding firmly to a purpose.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 158,
+    "category": "verbal",
+    "question": "VERBOSE most nearly means:",
+    "options": ["Concise", "Angry", "Wordy", "Silent"],
+    "answer": 2,
+    "explanation": "Verbose means using more words than necessary; long-winded.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 159,
+    "category": "verbal",
+    "question": "Which word does NOT belong with the others?",
+    "options": ["Hammer", "Saw", "Wrench", "Knife"],
+    "answer": 3,
+    "explanation": "Hammer, saw, and wrench are construction/carpentry tools. A knife is a cutting utensil.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 160,
+    "category": "verbal",
+    "question": "LOQUACIOUS most nearly means:",
+    "options": ["Talkative", "Quiet", "Aggressive", "Lazy"],
+    "answer": 0,
+    "explanation": "Loquacious means tending to talk a great deal; garrulous.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 161,
+    "category": "verbal",
+    "question": "PALTRY most nearly means:",
+    "options": ["Abundant", "Insignificant", "Expensive", "Proud"],
+    "answer": 1,
+    "explanation": "Paltry means small and of no importance; trifling.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 162,
+    "category": "verbal",
+    "question": "ASTUTE most nearly means:",
+    "options": ["Foolish", "Slow", "Shrewd", "Loud"],
+    "answer": 2,
+    "explanation": "Astute means having an ability to accurately assess situations; shrewd.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 163,
+    "category": "verbal",
+    "question": "Which word does NOT belong with the others?",
+    "options": ["Rose", "Tulip", "Oak", "Daisy"],
+    "answer": 2,
+    "explanation": "Rose, tulip, and daisy are flowers. Oak is a tree.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 164,
+    "category": "verbal",
+    "question": "Are the following words similar, contradictory, or not related? AMPLE — SCARCE",
+    "options": ["Similar", "Contradictory", "Not related", "Uncertain"],
+    "answer": 1,
+    "explanation": "Ample (more than enough) and scarce (insufficient) are opposites.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 165,
+    "category": "verbal",
+    "question": "ACRIMONY most nearly means:",
+    "options": ["Bitterness", "Kindness", "Agreement", "Caution"],
+    "answer": 0,
+    "explanation": "Acrimony means bitterness or ill feeling, especially in speech or manner.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 166,
+    "category": "verbal",
+    "question": "PROLIFIC most nearly means:",
+    "options": ["Rare", "Productive", "Slow", "Weak"],
+    "answer": 1,
+    "explanation": "Prolific means producing many results; highly productive.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 167,
+    "category": "verbal",
+    "question": "Which word is the opposite of TRANSPARENT?",
+    "options": ["Clear", "Visible", "Opaque", "Obvious"],
+    "answer": 2,
+    "explanation": "Opaque (not allowing light through) is the opposite of transparent.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 168,
+    "category": "verbal",
+    "question": "PLACID most nearly means:",
+    "options": ["Loud", "Calm", "Stormy", "Dangerous"],
+    "answer": 1,
+    "explanation": "Placid means not easily upset; calm and peaceful.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 169,
+    "category": "verbal",
+    "question": "ARDUOUS most nearly means:",
+    "options": ["Easy", "Interesting", "Demanding", "Fun"],
+    "answer": 2,
+    "explanation": "Arduous means involving or requiring strenuous effort; difficult.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 170,
+    "category": "verbal",
+    "question": "Which word does NOT belong with the others?",
+    "options": ["Copper", "Bronze", "Steel", "Gold"],
+    "answer": 2,
+    "explanation": "Copper, gold are pure elements; bronze is a copper-tin alloy, and steel is an iron alloy. Steel is the only ferrous alloy — the others are non-ferrous.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 171,
+    "category": "verbal",
+    "question": "FRUGAL most nearly means:",
+    "options": ["Wasteful", "Thrifty", "Generous", "Careless"],
+    "answer": 1,
+    "explanation": "Frugal means sparing or economical with money or food; thrifty.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 172,
+    "category": "verbal",
+    "question": "OBSOLETE most nearly means:",
+    "options": ["Modern", "Outdated", "Useful", "Relevant"],
+    "answer": 1,
+    "explanation": "Obsolete means no longer produced or used; out of date.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 173,
+    "category": "verbal",
+    "question": "Are the following words similar, contradictory, or not related? ARID — DRY",
+    "options": ["Similar", "Contradictory", "Not related", "Uncertain"],
+    "answer": 0,
+    "explanation": "Arid and dry are synonyms — both describe a lack of moisture.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 174,
+    "category": "verbal",
+    "question": "APPEASE most nearly means:",
+    "options": ["Anger", "Pacify", "Attack", "Delay"],
+    "answer": 1,
+    "explanation": "To appease means to pacify or placate someone by satisfying demands.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 175,
+    "category": "verbal",
+    "question": "ENIGMATIC most nearly means:",
+    "options": ["Clear", "Energetic", "Mysterious", "Simple"],
+    "answer": 2,
+    "explanation": "Enigmatic means difficult to interpret or understand; mysterious.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 176,
+    "category": "verbal",
+    "question": "Which of the following does NOT belong with the others?",
+    "options": ["Atlantic", "Pacific", "Mediterranean", "Sahara"],
+    "answer": 3,
+    "explanation": "Atlantic, Pacific, and Mediterranean are bodies of water. The Sahara is a desert.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 177,
+    "category": "verbal",
+    "question": "VINDICTIVE most nearly means:",
+    "options": ["Forgiving", "Spiteful", "Helpful", "Brave"],
+    "answer": 1,
+    "explanation": "Vindictive means having a strong desire for revenge; spiteful.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 178,
+    "category": "verbal",
+    "question": "ADEPT most nearly means:",
+    "options": ["Clumsy", "Skilled", "Young", "Loud"],
+    "answer": 1,
+    "explanation": "Adept means very skilled or proficient at something.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 179,
+    "category": "verbal",
+    "question": "Are the following words similar, contradictory, or not related? OPTIMISTIC — PESSIMISTIC",
+    "options": ["Similar", "Contradictory", "Not related", "Uncertain"],
+    "answer": 1,
+    "explanation": "Optimistic (hopeful) and pessimistic (expecting the worst) are opposites.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 180,
+    "category": "verbal",
+    "question": "DILIGENT most nearly means:",
+    "options": ["Lazy", "Quick", "Hardworking", "Dishonest"],
+    "answer": 2,
+    "explanation": "Diligent means having or showing care and effort in one's work.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 181,
+    "category": "verbal",
+    "question": "AMBIGUOUS most nearly means:",
+    "options": ["Clear", "Uncertain", "Positive", "Specific"],
+    "answer": 1,
+    "explanation": "Ambiguous means open to more than one interpretation; unclear.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 182,
+    "category": "verbal",
+    "question": "Which word is a synonym of CONCEAL?",
+    "options": ["Reveal", "Display", "Hide", "Announce"],
+    "answer": 2,
+    "explanation": "To conceal means to hide; keep secret.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 183,
+    "category": "verbal",
+    "question": "STEADFAST most nearly means:",
+    "options": ["Fickle", "Quick", "Resolute", "Fearful"],
+    "answer": 2,
+    "explanation": "Steadfast means resolutely firm and unwavering.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 184,
+    "category": "verbal",
+    "question": "Which word does NOT belong with the others?",
+    "options": ["Algebra", "Geometry", "Biology", "Calculus"],
+    "answer": 2,
+    "explanation": "Algebra, geometry, and calculus are branches of mathematics. Biology is a science.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 185,
+    "category": "verbal",
+    "question": "INSOLENT most nearly means:",
+    "options": ["Polite", "Disrespectful", "Shy", "Thoughtful"],
+    "answer": 1,
+    "explanation": "Insolent means showing a rude lack of respect.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 186,
+    "category": "verbal",
+    "question": "TRANSIENT most nearly means:",
+    "options": ["Permanent", "Temporary", "Heavy", "Transparent"],
+    "answer": 1,
+    "explanation": "Transient means lasting only for a short time; impermanent.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 187,
+    "category": "verbal",
+    "question": "Are the following words similar, contradictory, or not related? PINNACLE — SUMMIT",
+    "options": ["Similar", "Contradictory", "Not related", "Uncertain"],
+    "answer": 0,
+    "explanation": "Pinnacle and summit both mean the highest point of something.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 188,
+    "category": "verbal",
+    "question": "LETHARGY most nearly means:",
+    "options": ["Energy", "Joy", "Sluggishness", "Anger"],
+    "answer": 2,
+    "explanation": "Lethargy means a lack of energy and enthusiasm; sluggishness.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 189,
+    "category": "verbal",
+    "question": "Which word does NOT belong with the others?",
+    "options": ["Jupiter", "Saturn", "Mars", "Sun"],
+    "answer": 3,
+    "explanation": "Jupiter, Saturn, and Mars are planets. The Sun is a star.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 190,
+    "category": "verbal",
+    "question": "CANDOR most nearly means:",
+    "options": ["Deception", "Honesty", "Silence", "Arrogance"],
+    "answer": 1,
+    "explanation": "Candor means the quality of being open and honest; frankness.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 191,
+    "category": "verbal",
+    "question": "ABATE most nearly means:",
+    "options": ["Increase", "Diminish", "Create", "Celebrate"],
+    "answer": 1,
+    "explanation": "To abate means to become less intense or widespread; diminish.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 192,
+    "category": "verbal",
+    "question": "Which word does NOT belong with the others?",
+    "options": ["Soprano", "Alto", "Tenor", "Percussion"],
+    "answer": 3,
+    "explanation": "Soprano, alto, and tenor are vocal ranges. Percussion is an instrument type.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 193,
+    "category": "verbal",
+    "question": "DISDAIN most nearly means:",
+    "options": ["Admiration", "Contempt", "Fear", "Loyalty"],
+    "answer": 1,
+    "explanation": "Disdain means the feeling that something is unworthy; contempt.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 194,
+    "category": "verbal",
+    "question": "RESILIENT most nearly means:",
+    "options": ["Rigid", "Fragile", "Able to recover", "Harmful"],
+    "answer": 2,
+    "explanation": "Resilient means able to withstand or recover quickly from difficult conditions.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 195,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All dogs are mammals. All mammals are animals. All dogs are animals.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "This is a valid syllogism. If all dogs are mammals and all mammals are animals, then all dogs must be animals.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 196,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? Some birds can fly. Penguins are birds. Penguins can fly.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 1,
+    "explanation": "False — 'some birds can fly' does not mean all birds can. Penguins are flightless.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 197,
+    "category": "logic",
+    "question": "What comes next in the pattern? A, C, E, G, ___",
+    "options": ["H", "I", "J", "K"],
+    "answer": 1,
+    "explanation": "The pattern skips every other letter: A, C, E, G, I.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 198,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All managers are employees. Sarah is a manager. Sarah is an employee.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Valid syllogism. Sarah is a manager → Sarah is an employee.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 199,
+    "category": "logic",
+    "question": "What comes next in the series? Z, X, V, T, ___",
+    "options": ["R", "S", "Q", "P"],
+    "answer": 0,
+    "explanation": "Going backwards through the alphabet, skipping one letter each time: Z, X, V, T, R.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 200,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? No fish are mammals. Dolphins are mammals. Dolphins are not fish.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "If no fish are mammals and dolphins are mammals, then dolphins cannot be fish.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 201,
+    "category": "logic",
+    "question": "What number comes next? 1, 1, 2, 3, 5, 8, ___",
+    "options": ["10", "11", "12", "13"],
+    "answer": 3,
+    "explanation": "Fibonacci sequence: each number is the sum of the two before it. 5 + 8 = 13.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 202,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? Jane is taller than Mary. Mary is taller than Sue. Jane is taller than Sue.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Transitive property: Jane > Mary > Sue, therefore Jane > Sue.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 203,
+    "category": "logic",
+    "question": "In a line, Tom is ahead of Sam, and Sam is ahead of Bill. Who is last?",
+    "options": ["Tom", "Sam", "Bill", "Cannot be determined"],
+    "answer": 2,
+    "explanation": "Order from front: Tom, Sam, Bill. Bill is last.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 204,
+    "category": "logic",
+    "question": "What letter comes next in the series? B, E, H, K, ___",
+    "options": ["L", "M", "N", "O"],
+    "answer": 2,
+    "explanation": "Each letter skips 2 letters: B (+3) E (+3) H (+3) K (+3) N.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 205,
+    "category": "logic",
+    "question": "What comes next in the series? 2, 6, 18, 54, ___",
+    "options": ["108", "144", "162", "216"],
+    "answer": 2,
+    "explanation": "Each number is multiplied by 3: 54 × 3 = 162.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 206,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All cats are felines. Some felines are wild. Some cats are wild.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 2,
+    "explanation": "Uncertain — we know some felines are wild but we can't confirm those wild felines are cats specifically.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 207,
+    "category": "logic",
+    "question": "Five boxes are stacked. Box A is below B. Box C is above B. Box D is below A. Box E is above C. What is the order from bottom to top?",
+    "options": ["D, A, B, C, E", "A, D, B, C, E", "E, C, B, A, D", "D, B, A, C, E"],
+    "answer": 0,
+    "explanation": "D is below A, A is below B, B is below C, C is below E. Order: D, A, B, C, E.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 208,
+    "category": "logic",
+    "question": "What number comes next in the series? 144, 121, 100, 81, ___",
+    "options": ["60", "62", "64", "70"],
+    "answer": 2,
+    "explanation": "Perfect squares descending: 12², 11², 10², 9², 8² = 64.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 209,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All nurses wear scrubs. Linda wears scrubs. Linda is a nurse.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 2,
+    "explanation": "Uncertain — others besides nurses may also wear scrubs.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 210,
+    "category": "logic",
+    "question": "Hot is to Cold as Day is to ___",
+    "options": ["Warm", "Sun", "Night", "Weather"],
+    "answer": 2,
+    "explanation": "Hot and cold are opposites. Day and night are opposites.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 211,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All professors have doctorates. Dr. Brown is a professor. Dr. Brown has a doctorate.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Valid syllogism: all professors have doctorates, Dr. Brown is a professor, therefore Dr. Brown has a doctorate.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 212,
+    "category": "logic",
+    "question": "Finger is to Hand as Toe is to ___",
+    "options": ["Leg", "Ankle", "Foot", "Knee"],
+    "answer": 2,
+    "explanation": "A finger is part of a hand. A toe is part of a foot.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 213,
+    "category": "logic",
+    "question": "What comes next in the series? 3, 9, 27, 81, ___",
+    "options": ["162", "213", "243", "256"],
+    "answer": 2,
+    "explanation": "Each number is multiplied by 3: 81 × 3 = 243.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 214,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All pilots are licensed. Tom is not licensed. Tom is not a pilot.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Valid contrapositive: if all pilots are licensed, then anyone not licensed cannot be a pilot.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 215,
+    "category": "logic",
+    "question": "Author is to Book as Composer is to ___",
+    "options": ["Piano", "Orchestra", "Symphony", "Concert"],
+    "answer": 2,
+    "explanation": "An author creates a book. A composer creates a symphony.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 216,
+    "category": "logic",
+    "question": "What number comes next in the series? 5, 10, 20, 40, 80, ___",
+    "options": ["120", "140", "160", "200"],
+    "answer": 2,
+    "explanation": "Each number is doubled: 80 × 2 = 160.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 217,
+    "category": "logic",
+    "question": "Painter is to Canvas as Sculptor is to ___",
+    "options": ["Gallery", "Chisel", "Stone", "Museum"],
+    "answer": 2,
+    "explanation": "A painter works on canvas. A sculptor works with stone.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 218,
+    "category": "logic",
+    "question": "What letter comes next? A, Z, B, Y, C, X, ___",
+    "options": ["W", "D", "E", "V"],
+    "answer": 1,
+    "explanation": "Pattern alternates forward and backward: A, Z, B, Y, C, X, D...",
+    "difficulty": "medium"
+  },
+  {
+    "id": 219,
+    "category": "logic",
+    "question": "Doctor is to Patient as Teacher is to ___",
+    "options": ["School", "Classroom", "Student", "Lesson"],
+    "answer": 2,
+    "explanation": "A doctor serves a patient. A teacher serves a student.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 220,
+    "category": "logic",
+    "question": "What comes next in the series? 1, 2, 4, 7, 11, ___",
+    "options": ["14", "15", "16", "17"],
+    "answer": 2,
+    "explanation": "Differences increase by 1: +1, +2, +3, +4, +5. 11 + 5 = 16.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 221,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? Betty is older than Carol. Carol is older than Diane. Diane is younger than Betty.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Betty > Carol > Diane, so Diane is younger than Betty. True.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 222,
+    "category": "logic",
+    "question": "Bird is to Nest as Bee is to ___",
+    "options": ["Flower", "Honey", "Hive", "Wing"],
+    "answer": 2,
+    "explanation": "A bird lives in a nest. A bee lives in a hive.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 223,
+    "category": "logic",
+    "question": "What comes next in the series? 0, 1, 3, 6, 10, 15, ___",
+    "options": ["19", "20", "21", "22"],
+    "answer": 2,
+    "explanation": "Triangular numbers — differences increase by 1: +1, +2, +3, +4, +5, +6. 15 + 6 = 21.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 224,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All employees must badge in. John is an employee. John must badge in.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Valid syllogism: all employees badge in, John is an employee, therefore John must badge in.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 225,
+    "category": "logic",
+    "question": "What comes next in the series? 1, 4, 9, 16, 25, 36, ___",
+    "options": ["42", "47", "49", "52"],
+    "answer": 2,
+    "explanation": "Perfect squares: 1², 2², 3², 4², 5², 6², 7² = 49.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 226,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? Mike runs faster than Kevin. Kevin runs faster than John. Mike runs faster than John.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Transitive: Mike > Kevin > John, so Mike > John. True.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 227,
+    "category": "logic",
+    "question": "What comes next in the series? 2, 5, 10, 17, 26, ___",
+    "options": ["34", "36", "37", "41"],
+    "answer": 2,
+    "explanation": "Differences: +3, +5, +7, +9, +11. 26 + 11 = 37.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 228,
+    "category": "general",
+    "question": "How many months have exactly 30 days?",
+    "options": ["2", "3", "4", "5"],
+    "answer": 2,
+    "explanation": "April, June, September, and November each have exactly 30 days.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 229,
+    "category": "general",
+    "question": "Which of the following is NOT a primary color (traditional RYB model)?",
+    "options": ["Red", "Blue", "Green", "Yellow"],
+    "answer": 2,
+    "explanation": "Primary colors in the traditional model are red, yellow, and blue. Green is a secondary color.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 230,
+    "category": "general",
+    "question": "How many weeks are in a year?",
+    "options": ["48", "50", "52", "54"],
+    "answer": 2,
+    "explanation": "There are 52 weeks in a year.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 231,
+    "category": "general",
+    "question": "Which planet is closest to the Sun?",
+    "options": ["Venus", "Earth", "Mars", "Mercury"],
+    "answer": 3,
+    "explanation": "Mercury is the closest planet to the Sun.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 232,
+    "category": "general",
+    "question": "How many sides does a hexagon have?",
+    "options": ["4", "5", "6", "8"],
+    "answer": 2,
+    "explanation": "A hexagon has six sides.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 233,
+    "category": "general",
+    "question": "Which of the following is the largest ocean?",
+    "options": ["Atlantic", "Indian", "Arctic", "Pacific"],
+    "answer": 3,
+    "explanation": "The Pacific Ocean is the largest and deepest ocean on Earth.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 234,
+    "category": "general",
+    "question": "How many hours are in one week?",
+    "options": ["144", "160", "168", "180"],
+    "answer": 2,
+    "explanation": "7 days × 24 hours = 168 hours.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 235,
+    "category": "general",
+    "question": "Which of the following is the longest river in the world?",
+    "options": ["Amazon", "Nile", "Mississippi", "Yangtze"],
+    "answer": 1,
+    "explanation": "The Nile River in Africa is generally considered the longest river in the world.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 236,
+    "category": "general",
+    "question": "A 'score' refers to how many years?",
+    "options": ["10", "12", "15", "20"],
+    "answer": 3,
+    "explanation": "A score equals 20, as in Lincoln's 'Four score and seven years ago' = 87 years.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 237,
+    "category": "general",
+    "question": "Which of the following is NOT a continent?",
+    "options": ["Africa", "Australia", "Antarctica", "Greenland"],
+    "answer": 3,
+    "explanation": "Greenland is an island, not a continent. The seven continents are Africa, Antarctica, Asia, Australia, Europe, North America, and South America.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 238,
+    "category": "general",
+    "question": "Which of the following units measures electrical resistance?",
+    "options": ["Watt", "Volt", "Ampere", "Ohm"],
+    "answer": 3,
+    "explanation": "The ohm (Ω) is the unit of electrical resistance.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 239,
+    "category": "general",
+    "question": "How many degrees are in a right angle?",
+    "options": ["45", "60", "90", "180"],
+    "answer": 2,
+    "explanation": "A right angle measures exactly 90 degrees.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 240,
+    "category": "general",
+    "question": "Which of the following does NOT belong with the others?",
+    "options": ["Washington", "Lincoln", "Jefferson", "Churchill"],
+    "answer": 3,
+    "explanation": "Washington, Lincoln, and Jefferson are U.S. Presidents. Churchill was British Prime Minister.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 241,
+    "category": "general",
+    "question": "How many sides does an octagon have?",
+    "options": ["5", "6", "7", "8"],
+    "answer": 3,
+    "explanation": "An octagon has eight sides.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 242,
+    "category": "general",
+    "question": "The abbreviation 'i.e.' stands for which Latin phrase meaning 'that is'?",
+    "options": ["in example", "id est", "in extenso", "inter alia"],
+    "answer": 1,
+    "explanation": "'i.e.' stands for 'id est', Latin for 'that is'. It is used to clarify or restate something.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 243,
+    "category": "math",
+    "question": "What is the next number in the series? 2, 4, 8, 16, ___",
+    "options": ["18", "24", "32", "64"],
+    "answer": 2,
+    "explanation": "Each number is doubled: 16 × 2 = 32.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 244,
+    "category": "math",
+    "question": "What is the next number in the sequence? 1, 4, 9, 16, 25, ___",
+    "options": ["30", "32", "36", "49"],
+    "answer": 2,
+    "explanation": "Perfect squares: 1², 2², 3², 4², 5², 6² = 36.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 245,
+    "category": "math",
+    "question": "A box contains 6 red balls, 4 blue balls, and 2 green balls. What fraction of the balls are blue?",
+    "options": ["1/4", "1/3", "2/5", "1/2"],
+    "answer": 1,
+    "explanation": "Total = 12 balls. 4 blue ÷ 12 total = 1/3.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 246,
+    "category": "math",
+    "question": "What is the next number in the series? 80, 72, 64, 56, ___",
+    "options": ["44", "46", "48", "52"],
+    "answer": 2,
+    "explanation": "Each number decreases by 8: 56 − 8 = 48.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 247,
+    "category": "math",
+    "question": "What is the square root of 144?",
+    "options": ["10", "11", "12", "14"],
+    "answer": 2,
+    "explanation": "√144 = 12, because 12 × 12 = 144.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 248,
+    "category": "math",
+    "question": "If a dozen eggs cost $3.60, what is the cost of 1 egg?",
+    "options": ["$0.25", "$0.30", "$0.36", "$0.45"],
+    "answer": 1,
+    "explanation": "$3.60 ÷ 12 = $0.30 per egg.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 249,
+    "category": "math",
+    "question": "A store has a sale: buy 2 shirts at $15 each, get the third free. What is the average price per shirt for 3 shirts?",
+    "options": ["$5", "$7.50", "$10", "$12"],
+    "answer": 2,
+    "explanation": "Pay for 2: 2 × $15 = $30 for 3 shirts. $30 ÷ 3 = $10 each.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 250,
+    "category": "math",
+    "question": "What is the next number in the series? 3, 6, 12, 24, ___",
+    "options": ["30", "36", "42", "48"],
+    "answer": 3,
+    "explanation": "Each number is doubled: 24 × 2 = 48.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 251,
+    "category": "math",
+    "question": "A rectangular room is 14 feet long and 10 feet wide. What is the perimeter?",
+    "options": ["24", "36", "48", "140"],
+    "answer": 2,
+    "explanation": "Perimeter = 2 × (14 + 10) = 2 × 24 = 48 feet.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 252,
+    "category": "math",
+    "question": "What is the next number in the series? 100, 91, 82, 73, ___",
+    "options": ["54", "60", "63", "64"],
+    "answer": 3,
+    "explanation": "Each number decreases by 9: 73 − 9 = 64.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 253,
+    "category": "math",
+    "question": "Which of the following fractions is the largest?",
+    "options": ["2/3", "3/5", "5/8", "7/12"],
+    "answer": 0,
+    "explanation": "2/3 ≈ 0.667, 3/5 = 0.600, 5/8 = 0.625, 7/12 ≈ 0.583. Largest is 2/3.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 254,
+    "category": "math",
+    "question": "What is 1/3 of 90?",
+    "options": ["20", "27", "30", "45"],
+    "answer": 2,
+    "explanation": "90 ÷ 3 = 30.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 255,
+    "category": "math",
+    "question": "What is the next number in the series? 1, 3, 7, 15, 31, ___",
+    "options": ["47", "55", "61", "63"],
+    "answer": 3,
+    "explanation": "Each term = previous × 2 + 1: 31 × 2 + 1 = 63.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 256,
+    "category": "math",
+    "question": "John earns $12 per hour. After working 40 hours, he gets a 10% raise. What will he earn per hour after the raise?",
+    "options": ["$12.10", "$13.00", "$13.20", "$14.40"],
+    "answer": 2,
+    "explanation": "$12 × 1.10 = $13.20.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 257,
+    "category": "math",
+    "question": "A worker makes $13.75 per hour. How much will she earn in a 40-hour work week?",
+    "options": ["$500", "$530", "$550", "$575"],
+    "answer": 2,
+    "explanation": "$13.75 × 40 = $550.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 258,
+    "category": "math",
+    "question": "If you buy 3 pounds of meat at $2.50 per pound and 2 pounds of fish at $4.00 per pound, what is the total cost?",
+    "options": ["$10.50", "$13.00", "$15.50", "$16.00"],
+    "answer": 2,
+    "explanation": "3 × $2.50 = $7.50. 2 × $4.00 = $8.00. Total = $15.50.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 259,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? All squares are rectangles. Shape X is a square. Shape X is a rectangle.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "Valid syllogism: all squares are rectangles, Shape X is a square, therefore Shape X is a rectangle.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 260,
+    "category": "logic",
+    "question": "If the first two statements are true, is the third true? Some students are athletes. All athletes exercise regularly. Some students exercise regularly.",
+    "options": ["True", "False", "Uncertain", "Cannot determine"],
+    "answer": 0,
+    "explanation": "The students who are athletes must exercise regularly, so some students do exercise regularly. True.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 261,
+    "category": "math",
+    "question": "If 4x = 20, what is x?",
+    "options": ["4", "5", "6", "8"],
+    "answer": 1,
+    "explanation": "x = 20 ÷ 4 = 5.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 262,
+    "category": "general",
+    "question": "How many letters are in the English alphabet?",
+    "options": ["24", "25", "26", "28"],
+    "answer": 2,
+    "explanation": "The English alphabet has 26 letters.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 263,
+    "category": "general",
+    "question": "How many sides does a pentagon have?",
+    "options": ["4", "5", "6", "7"],
+    "answer": 1,
+    "explanation": "A pentagon has five sides.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 264,
+    "category": "general",
+    "question": "A decade consists of how many years?",
+    "options": ["5", "10", "15", "20"],
+    "answer": 1,
+    "explanation": "A decade is a period of 10 years.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 265,
+    "category": "general",
+    "question": "Which of the following is the chemical symbol for gold?",
+    "options": ["Go", "Gd", "Au", "Ag"],
+    "answer": 2,
+    "explanation": "Gold's chemical symbol is Au, from the Latin 'aurum'.",
+    "difficulty": "medium"
   }
 ]
