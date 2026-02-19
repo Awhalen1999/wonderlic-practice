@@ -4,10 +4,11 @@ import { useState } from 'react'
 
 type Props = {
   onSubmit: (name: string) => void
+  currentName?: string
 }
 
-export default function NamePromptModal({ onSubmit }: Props) {
-  const [name, setName] = useState('')
+export default function NamePromptModal({ onSubmit, currentName }: Props) {
+  const [name, setName] = useState(currentName && currentName !== 'friend' ? currentName : '')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -15,11 +16,11 @@ export default function NamePromptModal({ onSubmit }: Props) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm px-4">
-      <div className="bg-white border border-sky-100 rounded-2xl p-8 max-w-sm w-full shadow-xl shadow-sky-100/50">
-        <h2 className="text-xl font-bold text-zinc-900 mb-1">Hey there 👋</h2>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 px-4">
+      <div className="bg-white border border-sky-100 rounded-2xl p-8 max-w-sm w-full shadow-xl">
+        <h2 className="text-xl font-bold text-zinc-900 mb-1">What&apos;s your name?</h2>
         <p className="text-zinc-500 text-sm mb-6">
-          What should I call you? (So I can cheer you on properly.)
+          I&apos;ll use it to cheer you on.
         </p>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <input
@@ -35,14 +36,14 @@ export default function NamePromptModal({ onSubmit }: Props) {
             type="submit"
             className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl py-2.5 text-sm transition-colors"
           >
-            {name.trim() ? `Let's go, ${name.trim()}!` : "Let's go!"}
+            {name.trim() ? `Save — ${name.trim()}` : 'Save'}
           </button>
           <button
             type="button"
             onClick={() => onSubmit('')}
             className="text-xs text-zinc-400 hover:text-zinc-600 transition-colors"
           >
-            Skip for now
+            Close
           </button>
         </form>
       </div>

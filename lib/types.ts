@@ -29,15 +29,3 @@ export type UserProgress = {
   testHistory: TestResult[]
   lastActive: string
 }
-
-export type SessionMode = 'test' | 'practice'
-
-export type ActiveSession = {
-  mode: SessionMode
-  questions: Question[]
-  currentIndex: number
-  answers: Record<number, number | null> // questionId -> chosen option index
-  startTime: number // Date.now()
-  timeLimit: number | null // seconds, null for practice
-  locked: boolean // true after answer selected in test mode
-}

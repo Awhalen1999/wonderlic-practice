@@ -12,15 +12,12 @@ const TOTAL_QUESTIONS = questions.length;
 
 export default function HomePage() {
   const router = useRouter();
-  const { progress, setName, clearAllData, resetPractice } = useStore();
-  // Initialize directly — Zustand hydrates synchronously on the client
-  const [showNamePrompt, setShowNamePrompt] = useState(
-    () => progress.name === "",
-  );
+  const { progress, setName, clearAllData } = useStore();
+  const [showNameModal, setShowNameModal] = useState(false);
 
   const handleName = (name: string) => {
-    setName(name || "friend");
-    setShowNamePrompt(false);
+    if (name) setName(name);
+    setShowNameModal(false);
   };
 
   const accuracy = getAccuracyPercent(
@@ -32,16 +29,24 @@ export default function HomePage() {
 
   return (
     <>
-      {showNamePrompt && <NamePromptModal onSubmit={handleName} />}
+      {showNameModal && (
+        <NamePromptModal onSubmit={handleName} currentName={progress.name} />
+      )}
 
       <main className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
-        {/* Greeting */}
+        {/* Brain + name bubble */}
         <div className="text-center mb-10">
-          <div className="text-4xl mb-3">🧠</div>
+          <div className="relative inline-block mb-3">
+            <button
+              onClick={() => setShowNameModal(true)}
+              className="text-4xl hover:scale-110 transition-transform duration-150 active:scale-95"
+              title="Set your name"
+            >
+              🧠
+            </button>
+          </div>
           <h1 className="text-2xl font-bold text-zinc-900 tracking-tight">
-            {progress.name && progress.name !== "friend"
-              ? `Hey ${progress.name}.`
-              : "Wonderlic Practice"}
+            Wonderlic Practice
           </h1>
           <p className="text-zinc-600 text-sm mt-1">
             {progress.totalAnswered > 0
@@ -99,7 +104,7 @@ export default function HomePage() {
             </div>
           </button>
 
-          {/* Stats — only if there's something to show */}
+          {/* Stats */}
           {progress.totalAnswered > 0 && (
             <div className="grid grid-cols-3 gap-2 mt-1">
               {[
@@ -123,26 +128,14 @@ export default function HomePage() {
           )}
         </div>
 
-        {/* Reset controls — clean, unobtrusive */}
-        <div className="mt-10 flex items-center gap-4 text-xs text-zinc-500">
-          {hasPractice && (
-            <button
-              onClick={() => {
-                if (confirm("Reset practice progress back to Q1?"))
-                  resetPractice();
-              }}
-              className="hover:text-zinc-700 transition-colors"
-            >
-              Reset practice
-            </button>
-          )}
-          {hasPractice && <span>·</span>}
+        {/* Clear data */}
+        <div className="mt-10">
           <button
             onClick={() => {
               if (confirm("Clear all progress? This cannot be undone."))
                 clearAllData();
             }}
-            className="flex items-center gap-1 hover:text-red-400 transition-colors"
+            className="flex items-center gap-1 text-xs text-zinc-400 hover:text-red-400 transition-colors"
           >
             <Trash2 size={11} />
             Clear all data

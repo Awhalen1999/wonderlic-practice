@@ -2,7 +2,7 @@
 
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import type { Question, UserProgress, TestResult, ActiveSession, QuestionCategory } from './types'
+import type { UserProgress, TestResult, QuestionCategory } from './types'
 
 const defaultCategoryStats = (): UserProgress['categoryStats'] => ({
   verbal: { answered: 0, correct: 0 },
@@ -24,32 +24,18 @@ const defaultProgress = (): UserProgress => ({
 })
 
 type Store = {
-  // Persisted progress
   progress: UserProgress
-
-  // Active session (not persisted)
-  session: ActiveSession | null
-
-  // Progress actions
   setName: (name: string) => void
   recordAnswer: (questionId: number, category: QuestionCategory, correct: boolean) => void
   advancePracticeIndex: () => void
-  resetPractice: () => void
   saveTestResult: (result: TestResult) => void
   clearAllData: () => void
-
-  // Session actions
-  startSession: (session: ActiveSession) => void
-  setAnswer: (questionId: number, optionIndex: number) => void
-  advanceSession: () => void
-  endSession: () => void
 }
 
 export const useStore = create<Store>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       progress: defaultProgress(),
-      session: null,
 
       setName: (name) =>
         set((s) => ({ progress: { ...s.progress, name } })),
@@ -76,15 +62,7 @@ export const useStore = create<Store>()(
 
       advancePracticeIndex: () =>
         set((s) => ({
-          progress: {
-            ...s.progress,
-            practiceIndex: s.progress.practiceIndex + 1,
-          },
-        })),
-
-      resetPractice: () =>
-        set((s) => ({
-          progress: { ...s.progress, practiceIndex: 0 },
+          progress: { ...s.progress, practiceIndex: s.progress.practiceIndex + 1 },
         })),
 
       saveTestResult: (result) =>
@@ -97,41 +75,10 @@ export const useStore = create<Store>()(
           },
         })),
 
-      clearAllData: () =>
-        set({ progress: defaultProgress(), session: null }),
-
-      startSession: (session) => set({ session }),
-
-      setAnswer: (questionId, optionIndex) =>
-        set((s) => {
-          if (!s.session) return s
-          return {
-            session: {
-              ...s.session,
-              answers: { ...s.session.answers, [questionId]: optionIndex },
-              locked: s.session.mode === 'test' ? true : s.session.locked,
-            },
-          }
-        }),
-
-      advanceSession: () =>
-        set((s) => {
-          if (!s.session) return s
-          return {
-            session: {
-              ...s.session,
-              currentIndex: s.session.currentIndex + 1,
-              locked: false,
-            },
-          }
-        }),
-
-      endSession: () => set({ session: null }),
+      clearAllData: () => set({ progress: defaultProgress() }),
     }),
     {
       name: 'wonderlic-progress',
-      // Only persist the progress slice, not the active session
-      partialize: (state) => ({ progress: state.progress }),
     }
   )
 )
