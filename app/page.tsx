@@ -93,7 +93,9 @@ export default function HomePage() {
           <p className="text-zinc-600 text-sm mt-1">
             {progress.totalAnswered > 0
               ? `${progress.totalAnswered} answered · ${accuracy}% accuracy`
-              : `${TOTAL_QUESTIONS} questions. Time to get smart.`}
+              : progress.name?.toLowerCase() === "ericaa"
+                ? `${TOTAL_QUESTIONS} questions. Time to get some ridges on that marble brain.`
+                : `${TOTAL_QUESTIONS} questions. Time to get smart.`}
           </p>
         </div>
 

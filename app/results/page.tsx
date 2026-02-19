@@ -104,24 +104,24 @@ export default function ResultsPage() {
             )}
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => router.push("/")}
-              className="flex items-center justify-center gap-1.5 border border-zinc-200 hover:bg-zinc-50 text-zinc-600 font-medium text-sm rounded-xl py-2.5 px-4 transition-colors"
+              className="flex items-center justify-center gap-1.5 border border-zinc-200 hover:bg-zinc-50 text-zinc-600 font-medium text-sm rounded-xl py-2.5 px-4 transition-colors sm:flex-1"
             >
               <ArrowLeft size={14} />
               Home
             </button>
             <button
               onClick={() => router.push("/test")}
-              className="flex-1 flex items-center justify-center gap-2 border border-zinc-200 hover:bg-zinc-50 text-zinc-700 font-medium text-sm rounded-xl py-2.5 transition-colors"
+              className="flex items-center justify-center gap-2 border border-zinc-200 hover:bg-zinc-50 text-zinc-700 font-medium text-sm rounded-xl py-2.5 transition-colors sm:flex-1"
             >
               <RotateCcw size={14} />
               Try Again
             </button>
             <button
               onClick={() => router.push("/practice")}
-              className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm rounded-xl py-2.5 transition-colors"
+              className="flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm rounded-xl py-2.5 transition-colors sm:flex-1"
             >
               <BookOpen size={14} />
               Practice
