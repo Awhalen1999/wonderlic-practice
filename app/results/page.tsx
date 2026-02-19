@@ -73,6 +73,9 @@ export default function ResultsPage() {
       <div className="max-w-2xl mx-auto w-full px-4 py-8 space-y-5">
         {/* Score card */}
         <div className="bg-white border border-zinc-200 rounded-2xl p-8 text-center">
+          {progress.name && progress.name !== "friend" && (
+            <p className="text-sm text-zinc-500 mb-2">Nice work, {progress.name}</p>
+          )}
           <div className={`text-6xl font-bold mb-1 ${scoreColor}`}>
             {score}
             <span className="text-3xl text-zinc-400 font-normal">/{total}</span>

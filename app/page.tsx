@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { getAccuracyPercent } from "@/lib/utils";
@@ -65,10 +66,20 @@ export default function HomePage() {
           <div className="relative inline-block mb-3">
             <button
               onClick={() => setShowNameModal(true)}
-              className="text-4xl hover:scale-110 transition-transform duration-150 active:scale-95"
+              className="hover:scale-110 transition-transform duration-150 active:scale-95 inline-flex items-center justify-center w-14 h-14"
               title="Set your name"
             >
-              🧠
+              {progress.name?.toLowerCase() === "ericaa" ? (
+                <Image
+                  src="/img-1.png"
+                  alt=""
+                  width={56}
+                  height={56}
+                  className="w-full h-full object-contain"
+                />
+              ) : (
+                <span className="text-4xl">🧠</span>
+              )}
             </button>
           </div>
           {progress.name && (
