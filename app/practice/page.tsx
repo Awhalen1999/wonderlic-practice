@@ -148,7 +148,7 @@ export default function PracticePage() {
   // ── Category picker ──
   if (mode === "pick") {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+      <main className="h-full overflow-y-auto flex flex-col items-center justify-center px-4 py-12">
         <div className="w-full max-w-sm">
           <button
             onClick={() => router.push("/")}
@@ -210,7 +210,7 @@ export default function PracticePage() {
         />
       )}
 
-      <main className="min-h-screen flex flex-col">
+      <main className="h-full overflow-y-auto flex flex-col">
         {/* Slim top bar */}
         <div className="shrink-0 px-4 pt-4 pb-2 max-w-2xl mx-auto w-full">
           <div className="flex items-center justify-between mb-3">

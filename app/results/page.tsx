@@ -69,7 +69,7 @@ export default function ResultsPage() {
           : "text-red-500";
 
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="h-full overflow-y-auto flex flex-col">
       <div className="max-w-2xl mx-auto w-full px-4 py-8 space-y-5">
         {/* Score card */}
         <div className="bg-white border border-zinc-200 rounded-2xl p-8 text-center">

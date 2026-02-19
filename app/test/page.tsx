@@ -150,7 +150,7 @@ export default function TestPage() {
   // ── Pre-test screen ──
   if (!confirmed) {
     return (
-      <main className="min-h-screen flex flex-col items-center justify-center px-4">
+      <main className="h-full overflow-y-auto flex flex-col items-center justify-center px-4">
         <div className="w-full max-w-sm text-center">
           <div className="text-5xl mb-5">⏱️</div>
           <h1 className="text-2xl font-bold text-zinc-900 mb-2">Ready?</h1>
@@ -196,7 +196,7 @@ export default function TestPage() {
 
   // ── Active test ──
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="h-full overflow-y-auto flex flex-col">
       {/* Slim header */}
       <div className="shrink-0 px-4 pt-4 pb-2 max-w-2xl mx-auto w-full">
         <div className="flex items-center justify-between mb-3">

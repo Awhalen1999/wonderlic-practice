@@ -60,7 +60,7 @@ export default function HomePage() {
         <NamePromptModal onSubmit={handleName} currentName={progress.name} />
       )}
 
-      <main className="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+      <main className="h-full overflow-y-auto flex flex-col items-center justify-center px-4 py-12">
         {/* Brain + name bubble */}
         <div className="text-center mb-10">
           <div className="relative inline-block mb-3">
