@@ -217,7 +217,7 @@ export default function TestPage() {
           <button
             onClick={handleSubmit}
             disabled={selected === null || submitted}
-            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-sky-100 disabled:text-sky-300 disabled:cursor-not-allowed text-white font-bold rounded-2xl py-4 transition-all duration-150 active:scale-[0.98]"
+            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-indigo-200 disabled:text-indigo-400 disabled:cursor-not-allowed text-white font-bold rounded-2xl py-4 transition-all duration-150 active:scale-[0.98]"
           >
             {submitted ? '...' : 'Submit'}
           </button>
