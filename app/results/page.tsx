@@ -66,12 +66,12 @@ export default function ResultsPage() {
         <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
           <button
             onClick={() => router.push('/')}
-            className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-700 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
           >
             <Home size={15} />
             Home
           </button>
-          <span className="text-sm font-medium text-zinc-500">Test Results</span>
+          <span className="text-sm font-medium text-zinc-700">Test Results</span>
           <div className="w-16" />
         </div>
       </header>
@@ -80,9 +80,9 @@ export default function ResultsPage() {
         {/* Score card */}
         <div className="bg-white border border-zinc-200 rounded-2xl p-8 text-center">
           <div className={`text-6xl font-bold mb-1 ${scoreColor}`}>
-            {score}<span className="text-3xl text-zinc-300 font-normal">/{total}</span>
+            {score}<span className="text-3xl text-zinc-400 font-normal">/{total}</span>
           </div>
-          <div className="text-zinc-500 text-sm mb-6">
+          <div className="text-zinc-600 text-sm mb-6">
             {pct}% correct · Top {100 - percentile}% · {formatTime(timeUsed)} used
           </div>
 
@@ -120,7 +120,7 @@ export default function ResultsPage() {
         {/* Category breakdown */}
         {categoryBreakdown && (
           <div className="bg-white border border-zinc-200 rounded-2xl p-6">
-            <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-4">
+            <h3 className="text-sm font-semibold text-zinc-700 uppercase tracking-wider mb-4">
               By Category
             </h3>
             <div className="space-y-3">
@@ -132,9 +132,9 @@ export default function ResultsPage() {
                     <div key={cat}>
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-sm text-zinc-700">{getCategoryLabel(cat)}</span>
-                        <span className="text-sm font-medium text-zinc-500">
+                        <span className="text-sm font-medium text-zinc-700">
                           {correct}/{catTotal}
-                          <span className="text-zinc-400 text-xs ml-1">({catPct}%)</span>
+                          <span className="text-zinc-500 text-xs ml-1">({catPct}%)</span>
                         </span>
                       </div>
                       <div className="w-full bg-zinc-100 rounded-full h-1.5">
@@ -156,10 +156,10 @@ export default function ResultsPage() {
         {missed.length > 0 && (
           <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden">
             <div className="p-6 pb-4">
-              <h3 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider">
+              <h3 className="text-sm font-semibold text-zinc-700 uppercase tracking-wider">
                 Missed Questions ({missed.length})
               </h3>
-              <p className="text-xs text-zinc-400 mt-1">
+              <p className="text-xs text-zinc-600 mt-1">
                 Tap any question to see the correct answer and explanation.
               </p>
             </div>
@@ -179,9 +179,9 @@ export default function ResultsPage() {
                         <span className="text-sm text-zinc-700 leading-snug">{q.question}</span>
                       </div>
                       {isOpen ? (
-                        <ChevronUp size={15} className="text-zinc-300 shrink-0 mt-0.5" />
+                        <ChevronUp size={15} className="text-zinc-400 shrink-0 mt-0.5" />
                       ) : (
-                        <ChevronDown size={15} className="text-zinc-300 shrink-0 mt-0.5" />
+                        <ChevronDown size={15} className="text-zinc-400 shrink-0 mt-0.5" />
                       )}
                     </button>
 
@@ -190,13 +190,13 @@ export default function ResultsPage() {
                         {chosen !== undefined && (
                           <div className="flex items-center gap-2 text-sm">
                             <X size={13} className="text-red-400 shrink-0" />
-                            <span className="text-zinc-500">You answered:</span>
+                            <span className="text-zinc-700">You answered:</span>
                             <span className="text-red-600 font-medium">{q.options[chosen]}</span>
                           </div>
                         )}
                         <div className="flex items-center gap-2 text-sm">
                           <Check size={13} className="text-emerald-500 shrink-0" />
-                          <span className="text-zinc-500">Correct answer:</span>
+                          <span className="text-zinc-700">Correct answer:</span>
                           <span className="text-emerald-700 font-medium">{q.options[q.answer]}</span>
                         </div>
                         <div className="bg-sky-50 border border-sky-200 rounded-xl p-3">

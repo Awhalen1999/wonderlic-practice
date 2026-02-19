@@ -15,7 +15,7 @@ const LABELS = ['A', 'B', 'C', 'D', 'E']
 export default function AnswerOption({ label, text, state, disabled, onClick }: Props) {
   const stateClasses: Record<AnswerState, string> = {
     default:
-      'border-zinc-200 bg-white hover:border-indigo-400 hover:bg-indigo-50 cursor-pointer',
+      'border-sky-200 bg-white hover:border-sky-400 hover:bg-sky-50 cursor-pointer',
     selected:
       'border-indigo-500 bg-indigo-50 cursor-pointer',
     correct:

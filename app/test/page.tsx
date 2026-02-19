@@ -4,15 +4,14 @@ import { useEffect, useState, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { useStore } from '@/lib/store'
-import { selectTestQuestions, getCategoryLabel, getCategoryColor, scoreToPercentile } from '@/lib/utils'
+import { selectTestQuestions, getCategoryColor, getCategoryLabel, scoreToPercentile } from '@/lib/utils'
 import AnswerOption, { LABELS } from '@/components/AnswerOption'
 import type { AnswerState } from '@/components/AnswerOption'
-import ProgressBar from '@/components/ProgressBar'
 import Timer from '@/components/Timer'
 import questions from '@/data/questions.json'
 import type { Question, QuestionCategory } from '@/lib/types'
 
-const TIME_LIMIT = 720 // 12 minutes in seconds
+const TIME_LIMIT = 720
 const TEST_COUNT = 50
 
 export default function TestPage() {
@@ -30,11 +29,11 @@ export default function TestPage() {
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const question = testQuestions[currentIndex]
+  const pct = Math.round((currentIndex / testQuestions.length) * 100)
 
   const finishTest = useCallback((finalAnswers: Record<number, number>) => {
     const timeUsed = Math.round((Date.now() - startTime) / 1000)
     let score = 0
-
     const categoryBreakdown: Record<QuestionCategory, { correct: number; total: number }> = {
       verbal: { correct: 0, total: 0 },
       math: { correct: 0, total: 0 },
@@ -48,15 +47,9 @@ export default function TestPage() {
       const chosen = finalAnswers[q.id]
       const correct = chosen === q.answer
       categoryBreakdown[q.category].total++
-      if (correct) {
-        score++
-        categoryBreakdown[q.category].correct++
-      } else {
-        missed.push(q.id)
-      }
+      if (correct) { score++; categoryBreakdown[q.category].correct++ }
+      else missed.push(q.id)
     })
-
-    const percentile = scoreToPercentile(score)
 
     saveTestResult({
       date: new Date().toLocaleDateString(),
@@ -67,13 +60,11 @@ export default function TestPage() {
       missedQuestions: missed,
     })
 
-    // Store results temporarily for the results page
     sessionStorage.setItem('lastTestQuestions', JSON.stringify(testQuestions))
     sessionStorage.setItem('lastTestAnswers', JSON.stringify(finalAnswers))
     sessionStorage.setItem('lastTestScore', String(score))
-    sessionStorage.setItem('lastTestPercentile', String(percentile))
+    sessionStorage.setItem('lastTestPercentile', String(scoreToPercentile(score)))
     sessionStorage.setItem('lastTestTimeUsed', String(timeUsed))
-
     router.push('/results')
   }, [testQuestions, startTime, saveTestResult, router])
 
@@ -82,26 +73,15 @@ export default function TestPage() {
     setLocked(true)
     const newAnswers = { ...answers, [question.id]: optionIndex }
     setAnswers(newAnswers)
-
-    // Auto-advance after short delay
     advanceTimer.current = setTimeout(() => {
-      const nextIndex = currentIndex + 1
-      if (nextIndex >= testQuestions.length) {
-        finishTest(newAnswers)
-      } else {
-        setCurrentIndex(nextIndex)
-        setLocked(false)
-      }
-    }, 400)
+      const next = currentIndex + 1
+      if (next >= testQuestions.length) finishTest(newAnswers)
+      else { setCurrentIndex(next); setLocked(false) }
+    }, 450)
   }, [locked, answers, question, currentIndex, testQuestions.length, finishTest])
 
-  useEffect(() => {
-    return () => {
-      if (advanceTimer.current) clearTimeout(advanceTimer.current)
-    }
-  }, [])
+  useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current) }, [])
 
-  // Keyboard shortcuts
   useEffect(() => {
     if (!confirmed) return
     const handler = (e: KeyboardEvent) => {
@@ -114,78 +94,68 @@ export default function TestPage() {
     return () => window.removeEventListener('keydown', handler)
   }, [confirmed, question?.options.length, handleSelect])
 
-  const handleTimerExpire = useCallback(() => {
-    finishTest(answers)
-  }, [finishTest, answers])
-
   const getOptionState = (idx: number): AnswerState => {
     if (!locked) return 'default'
-    const chosen = answers[question.id]
-    if (idx === chosen) return 'selected'
-    return 'default'
+    return answers[question.id] === idx ? 'selected' : 'default'
   }
 
-  // Pre-test confirmation screen
+  // ── Pre-test screen ──
   if (!confirmed) {
     return (
-      <main className="min-h-screen flex flex-col">
-        <header className="bg-white border-b border-zinc-200">
-          <div className="max-w-2xl mx-auto px-4 py-3">
-            <button
-              onClick={() => router.push('/')}
-              className="flex items-center gap-1.5 text-sm text-zinc-400 hover:text-zinc-700 transition-colors"
-            >
-              <ArrowLeft size={15} />
-              Back
-            </button>
+      <main className="min-h-screen flex flex-col items-center justify-center px-4">
+        <div className="w-full max-w-sm text-center">
+          <div className="text-5xl mb-5">⏱️</div>
+          <h1 className="text-2xl font-bold text-zinc-900 mb-2">Ready?</h1>
+          <p className="text-zinc-600 text-sm mb-8">
+            {TEST_COUNT} questions · 12 minutes · no going back
+          </p>
+
+          <div className="bg-white border border-sky-100 rounded-2xl divide-y divide-sky-50 text-left mb-6">
+            {[
+              'Select an answer to lock it in and auto-advance',
+              'No explanations until after the test',
+              'Timer starts the moment you begin',
+            ].map((r, i) => (
+              <div key={i} className="px-4 py-3 text-sm text-zinc-500 flex items-start gap-2">
+                <span className="text-indigo-500 mt-0.5">·</span>
+                {r}
+              </div>
+            ))}
           </div>
-        </header>
-        <div className="flex-1 max-w-2xl mx-auto w-full px-4 py-12">
-          <div className="bg-white border border-zinc-200 rounded-2xl p-8">
-            <div className="text-3xl mb-4">⏱️</div>
-            <h1 className="text-2xl font-bold text-zinc-900 mb-2">Wonderlic Test Simulation</h1>
-            <p className="text-zinc-500 mb-6">
-              This is a real Wonderlic simulation. The rules:
+
+          {progress.name && progress.name !== 'friend' && (
+            <p className="text-sm text-zinc-600 mb-5">
+              You&apos;ve got this, {progress.name}.
             </p>
-            <ul className="space-y-2.5 mb-8">
-              {[
-                `${TEST_COUNT} questions, 12-minute time limit`,
-                'Once you select an answer, it\'s locked — no changing',
-                'No explanations during the test',
-                'The timer starts the moment you click "Begin Test"',
-                'The test ends when time runs out or all questions are answered',
-              ].map((rule, i) => (
-                <li key={i} className="flex items-start gap-2 text-sm text-zinc-600">
-                  <span className="text-indigo-400 mt-0.5">→</span>
-                  {rule}
-                </li>
-              ))}
-            </ul>
-            {progress.name && progress.name !== 'friend' && (
-              <p className="text-sm text-zinc-400 mb-6">
-                Good luck, {progress.name}. You&apos;ve got this.
-              </p>
-            )}
-            <button
-              onClick={() => setConfirmed(true)}
-              className="w-full bg-zinc-900 hover:bg-zinc-700 text-white font-semibold rounded-xl py-3 transition-colors"
-            >
-              Begin Test →
-            </button>
-          </div>
+          )}
+
+          <button
+            onClick={() => setConfirmed(true)}
+            className="w-full bg-zinc-900 hover:bg-zinc-800 active:scale-[0.98] text-white font-bold rounded-2xl py-4 transition-all duration-150"
+          >
+            Begin →
+          </button>
+          <button
+            onClick={() => router.push('/')}
+            className="mt-3 flex items-center justify-center gap-1 w-full text-sm text-zinc-500 hover:text-zinc-700 transition-colors py-2"
+          >
+            <ArrowLeft size={13} /> Back
+          </button>
         </div>
       </main>
     )
   }
 
+  // ── Active test ──
   return (
     <main className="min-h-screen flex flex-col">
-      {/* Top bar */}
-      <header className="bg-white border-b border-zinc-200">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="text-sm font-medium text-zinc-500">
-              {currentIndex + 1} <span className="text-zinc-300">/</span> {testQuestions.length}
+      {/* Slim header */}
+      <div className="shrink-0 px-4 pt-4 pb-2 max-w-2xl mx-auto w-full">
+        <div className="flex items-center justify-between mb-3">
+          <div className="flex items-center gap-2">
+            <span className="text-sm font-semibold text-zinc-700 tabular-nums">
+              {currentIndex + 1}
+              <span className="font-normal text-zinc-500">/{testQuestions.length}</span>
             </span>
             <span
               className={`text-xs font-medium px-2 py-0.5 rounded-full ${getCategoryColor(question.category)}`}
@@ -193,39 +163,38 @@ export default function TestPage() {
               {getCategoryLabel(question.category)}
             </span>
           </div>
-          <Timer totalSeconds={TIME_LIMIT} onExpire={handleTimerExpire} />
+          <Timer totalSeconds={TIME_LIMIT} onExpire={() => finishTest(answers)} />
         </div>
-        <div className="max-w-2xl mx-auto px-4 pb-3">
-          <ProgressBar current={currentIndex} total={testQuestions.length} />
+        <div className="w-full h-1.5 bg-sky-200/60 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-amber-400 rounded-full transition-all duration-500"
+            style={{ width: `${pct}%` }}
+          />
         </div>
-      </header>
+      </div>
 
-      {/* Content */}
-      <div className="flex-1 max-w-2xl mx-auto w-full px-4 py-8">
-        <div className="bg-white border border-zinc-200 rounded-2xl p-6 md:p-8">
-          <p className="text-lg font-medium text-zinc-900 leading-relaxed mb-6">
-            {question.question}
-          </p>
+      {/* Centered question */}
+      <div className="flex-1 flex flex-col items-center justify-center px-4 py-6 max-w-2xl mx-auto w-full">
+        <p className="text-lg font-semibold text-zinc-900 leading-relaxed text-center mb-8 max-w-lg">
+          {question.question}
+        </p>
 
-          <div className="flex flex-col gap-2.5">
-            {question.options.map((opt, idx) => (
-              <AnswerOption
-                key={idx}
-                label={LABELS[idx]}
-                text={opt}
-                state={getOptionState(idx)}
-                disabled={locked}
-                onClick={() => handleSelect(idx)}
-              />
-            ))}
-          </div>
-
-          <p className="mt-6 text-xs text-zinc-400 text-right">
-            {answers[question?.id] !== undefined
-              ? 'Answer locked — moving on...'
-              : 'Tap an answer to select and continue'}
-          </p>
+        <div className="w-full flex flex-col gap-2.5 max-w-md">
+          {question.options.map((opt, idx) => (
+            <AnswerOption
+              key={idx}
+              label={LABELS[idx]}
+              text={opt}
+              state={getOptionState(idx)}
+              disabled={locked}
+              onClick={() => handleSelect(idx)}
+            />
+          ))}
         </div>
+
+        <p className="mt-6 text-xs text-zinc-500 text-center">
+          {locked ? 'Moving on...' : 'Tap to answer · 1–4 on keyboard'}
+        </p>
       </div>
     </main>
   )

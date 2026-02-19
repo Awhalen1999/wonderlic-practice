@@ -45,7 +45,7 @@ export default function Timer({ totalSeconds, onExpire }: Props) {
           ? 'text-red-500 animate-pulse'
           : isWarning
           ? 'text-amber-500'
-          : 'text-zinc-400'
+          : 'text-zinc-600'
       }`}
     >
       <Clock size={14} />

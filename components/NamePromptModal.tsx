@@ -16,7 +16,7 @@ export default function NamePromptModal({ onSubmit }: Props) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-sm px-4">
-      <div className="bg-white border border-zinc-200 rounded-2xl p-8 max-w-sm w-full shadow-xl">
+      <div className="bg-white border border-sky-100 rounded-2xl p-8 max-w-sm w-full shadow-xl shadow-sky-100/50">
         <h2 className="text-xl font-bold text-zinc-900 mb-1">Hey there 👋</h2>
         <p className="text-zinc-500 text-sm mb-6">
           What should I call you? (So I can cheer you on properly.)
