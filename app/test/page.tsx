@@ -158,21 +158,18 @@ export default function TestPage() {
             {TEST_COUNT} questions · 12 minutes
           </p>
 
-          <div className="bg-white border border-sky-100 rounded-2xl divide-y divide-sky-50 text-left mb-6">
+          <ul className="text-left space-y-2 mb-8 text-sm text-zinc-500">
             {[
               "Select an answer then hit Submit to move on",
               "No explanations until after the test",
               "Timer starts the moment you begin",
             ].map((r, i) => (
-              <div
-                key={i}
-                className="px-4 py-3 text-sm text-zinc-500 flex items-start gap-2"
-              >
-                <span className="text-indigo-500 mt-0.5">·</span>
+              <li key={i} className="flex items-start gap-2">
+                <span className="text-zinc-400 mt-0.5">·</span>
                 {r}
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
           {progress.name && progress.name !== "friend" && (
             <p className="text-sm text-zinc-600 mb-5">
