@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { Check, X, ChevronDown, ChevronUp, Home, RotateCcw, BookOpen } from 'lucide-react'
+import { Check, X, ChevronDown, ChevronUp, RotateCcw, BookOpen, ArrowLeft } from 'lucide-react'
 import { useStore } from '@/lib/store'
 import { formatTime, getCategoryLabel } from '@/lib/utils'
 import type { Question, QuestionCategory } from '@/lib/types'
@@ -16,7 +16,6 @@ export default function ResultsPage() {
   const [testQuestions, setTestQuestions] = useState<Question[]>([])
   const [testAnswers, setTestAnswers] = useState<Record<number, number>>({})
   const [score, setScore] = useState(0)
-  const [percentile, setPercentile] = useState(0)
   const [timeUsed, setTimeUsed] = useState(0)
   const [expandedMissed, setExpandedMissed] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
@@ -26,7 +25,6 @@ export default function ResultsPage() {
     const qs = sessionStorage.getItem('lastTestQuestions')
     const ans = sessionStorage.getItem('lastTestAnswers')
     const sc = sessionStorage.getItem('lastTestScore')
-    const pct = sessionStorage.getItem('lastTestPercentile')
     const tu = sessionStorage.getItem('lastTestTimeUsed')
 
     if (!qs) {
@@ -37,7 +35,6 @@ export default function ResultsPage() {
     setTestQuestions(JSON.parse(qs))
     setTestAnswers(JSON.parse(ans || '{}'))
     setScore(parseInt(sc || '0'))
-    setPercentile(parseInt(pct || '0'))
     setTimeUsed(parseInt(tu || '0'))
   }, [router])
 
@@ -61,21 +58,6 @@ export default function ResultsPage() {
 
   return (
     <main className="min-h-screen flex flex-col">
-      {/* Header */}
-      <header className="bg-white border-b border-zinc-200">
-        <div className="max-w-2xl mx-auto px-4 py-4 flex items-center justify-between">
-          <button
-            onClick={() => router.push('/')}
-            className="flex items-center gap-1.5 text-sm text-zinc-600 hover:text-zinc-900 transition-colors"
-          >
-            <Home size={15} />
-            Home
-          </button>
-          <span className="text-sm font-medium text-zinc-700">Test Results</span>
-          <div className="w-16" />
-        </div>
-      </header>
-
       <div className="max-w-2xl mx-auto w-full px-4 py-8 space-y-5">
         {/* Score card */}
         <div className="bg-white border border-zinc-200 rounded-2xl p-8 text-center">
@@ -83,7 +65,7 @@ export default function ResultsPage() {
             {score}<span className="text-3xl text-zinc-400 font-normal">/{total}</span>
           </div>
           <div className="text-zinc-600 text-sm mb-6">
-            {pct}% correct · Top {100 - percentile}% · {formatTime(timeUsed)} used
+            {pct}% correct · {formatTime(timeUsed)} used
           </div>
 
           {/* Score message */}
@@ -101,6 +83,13 @@ export default function ResultsPage() {
 
           <div className="flex gap-3">
             <button
+              onClick={() => router.push('/')}
+              className="flex items-center justify-center gap-1.5 border border-zinc-200 hover:bg-zinc-50 text-zinc-600 font-medium text-sm rounded-xl py-2.5 px-4 transition-colors"
+            >
+              <ArrowLeft size={14} />
+              Home
+            </button>
+            <button
               onClick={() => router.push('/test')}
               className="flex-1 flex items-center justify-center gap-2 border border-zinc-200 hover:bg-zinc-50 text-zinc-700 font-medium text-sm rounded-xl py-2.5 transition-colors"
             >
@@ -112,7 +101,7 @@ export default function ResultsPage() {
               className="flex-1 flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm rounded-xl py-2.5 transition-colors"
             >
               <BookOpen size={14} />
-              Practice Mode
+              Practice
             </button>
           </div>
         </div>

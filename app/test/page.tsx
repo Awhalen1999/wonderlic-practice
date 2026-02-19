@@ -23,7 +23,8 @@ export default function TestPage() {
   )
   const [currentIndex, setCurrentIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<number, number>>({})
-  const [locked, setLocked] = useState(false)
+  const [selected, setSelected] = useState<number | null>(null)
+  const [submitted, setSubmitted] = useState(false)
   const [startTime] = useState(Date.now())
   const [confirmed, setConfirmed] = useState(false)
   const advanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -68,17 +69,27 @@ export default function TestPage() {
     router.push('/results')
   }, [testQuestions, startTime, saveTestResult, router])
 
-  const handleSelect = useCallback((optionIndex: number) => {
-    if (locked) return
-    setLocked(true)
-    const newAnswers = { ...answers, [question.id]: optionIndex }
+  const handleSelect = (idx: number) => {
+    if (submitted) return
+    setSelected(idx)
+  }
+
+  const handleSubmit = useCallback(() => {
+    if (selected === null || submitted || !question) return
+    const newAnswers = { ...answers, [question.id]: selected }
     setAnswers(newAnswers)
+    setSubmitted(true)
     advanceTimer.current = setTimeout(() => {
       const next = currentIndex + 1
-      if (next >= testQuestions.length) finishTest(newAnswers)
-      else { setCurrentIndex(next); setLocked(false) }
-    }, 450)
-  }, [locked, answers, question, currentIndex, testQuestions.length, finishTest])
+      if (next >= testQuestions.length) {
+        finishTest(newAnswers)
+      } else {
+        setCurrentIndex(next)
+        setSelected(null)
+        setSubmitted(false)
+      }
+    }, 600)
+  }, [selected, submitted, question, answers, currentIndex, testQuestions.length, finishTest])
 
   useEffect(() => () => { if (advanceTimer.current) clearTimeout(advanceTimer.current) }, [])
 
@@ -87,16 +98,20 @@ export default function TestPage() {
     const handler = (e: KeyboardEvent) => {
       if (e.key >= '1' && e.key <= '5') {
         const idx = parseInt(e.key) - 1
-        if (idx < question.options.length) handleSelect(idx)
+        if (question && idx < question.options.length) handleSelect(idx)
       }
+      const letterIdx = ['a', 'b', 'c', 'd', 'e'].indexOf(e.key.toLowerCase())
+      if (letterIdx !== -1 && question && letterIdx < question.options.length) handleSelect(letterIdx)
+      if (e.key === 'Enter' && !submitted) handleSubmit()
     }
     window.addEventListener('keydown', handler)
     return () => window.removeEventListener('keydown', handler)
-  }, [confirmed, question?.options.length, handleSelect])
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [confirmed, question, submitted, handleSubmit])
 
   const getOptionState = (idx: number): AnswerState => {
-    if (!locked) return 'default'
-    return answers[question.id] === idx ? 'selected' : 'default'
+    if (!submitted) return selected === idx ? 'selected' : 'default'
+    return selected === idx ? 'selected' : 'default'
   }
 
   // ── Pre-test screen ──
@@ -112,7 +127,7 @@ export default function TestPage() {
 
           <div className="bg-white border border-sky-100 rounded-2xl divide-y divide-sky-50 text-left mb-6">
             {[
-              'Select an answer to lock it in and auto-advance',
+              'Select an answer then hit Submit to move on',
               'No explanations until after the test',
               'Timer starts the moment you begin',
             ].map((r, i) => (
@@ -153,6 +168,12 @@ export default function TestPage() {
       <div className="shrink-0 px-4 pt-4 pb-2 max-w-2xl mx-auto w-full">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
+            <button
+              onClick={() => router.push('/')}
+              className="text-zinc-500 hover:text-zinc-800 transition-colors p-1 -ml-1"
+            >
+              <ArrowLeft size={18} />
+            </button>
             <span className="text-sm font-semibold text-zinc-700 tabular-nums">
               {currentIndex + 1}
               <span className="font-normal text-zinc-500">/{testQuestions.length}</span>
@@ -186,15 +207,21 @@ export default function TestPage() {
               label={LABELS[idx]}
               text={opt}
               state={getOptionState(idx)}
-              disabled={locked}
+              disabled={submitted}
               onClick={() => handleSelect(idx)}
             />
           ))}
         </div>
 
-        <p className="mt-6 text-xs text-zinc-500 text-center">
-          {locked ? 'Moving on...' : 'Tap to answer · 1–4 on keyboard'}
-        </p>
+        <div className="mt-6 w-full max-w-md">
+          <button
+            onClick={handleSubmit}
+            disabled={selected === null || submitted}
+            className="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-sky-100 disabled:text-sky-300 disabled:cursor-not-allowed text-white font-bold rounded-2xl py-4 transition-all duration-150 active:scale-[0.98]"
+          >
+            {submitted ? '...' : 'Submit'}
+          </button>
+        </div>
       </div>
     </main>
   )
