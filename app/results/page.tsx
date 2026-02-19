@@ -41,7 +41,6 @@ export default function ResultsPage() {
   if (!mounted || testQuestions.length === 0) return null
 
   const total = testQuestions.length
-  const missed = testQuestions.filter((q) => testAnswers[q.id] !== q.answer)
   const pct = Math.round((score / total) * 100)
 
   const lastResult = progress.testHistory[0]
@@ -141,72 +140,75 @@ export default function ResultsPage() {
           </div>
         )}
 
-        {/* Missed questions */}
-        {missed.length > 0 && (
-          <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden">
-            <div className="p-6 pb-4">
-              <h3 className="text-sm font-semibold text-zinc-700 uppercase tracking-wider">
-                Missed Questions ({missed.length})
-              </h3>
-              <p className="text-xs text-zinc-600 mt-1">
-                Tap any question to see the correct answer and explanation.
-              </p>
-            </div>
+        {/* All questions */}
+        <div className="bg-white border border-zinc-200 rounded-2xl overflow-hidden">
+          <div className="p-6 pb-4">
+            <h3 className="text-sm font-semibold text-zinc-700 uppercase tracking-wider">
+              Questions ({testQuestions.length})
+            </h3>
+            <p className="text-xs text-zinc-600 mt-1">
+              Tap any missed question to see the correct answer and explanation.
+            </p>
+          </div>
 
-            <div className="divide-y divide-zinc-100">
-              {missed.map((q) => {
-                const isOpen = expandedMissed === q.id
-                const chosen = testAnswers[q.id]
-                return (
-                  <div key={q.id}>
-                    <button
-                      onClick={() => setExpandedMissed(isOpen ? null : q.id)}
-                      className="w-full text-left px-6 py-4 hover:bg-zinc-50 transition-colors flex items-start justify-between gap-3"
-                    >
-                      <div className="flex items-start gap-3">
-                        <X size={14} className="text-red-400 mt-0.5 shrink-0" />
-                        <span className="text-sm text-zinc-700 leading-snug">{q.question}</span>
-                      </div>
-                      {isOpen ? (
-                        <ChevronUp size={15} className="text-zinc-400 shrink-0 mt-0.5" />
+          <div className="divide-y divide-zinc-100">
+            {testQuestions.map((q) => {
+              const correct = testAnswers[q.id] === q.answer
+              const isOpen = expandedMissed === q.id
+              const chosen = testAnswers[q.id]
+              return (
+                <div key={q.id}>
+                  <button
+                    onClick={() => setExpandedMissed(isOpen ? null : q.id)}
+                    className="w-full text-left px-6 py-4 hover:bg-zinc-50 transition-colors flex items-start justify-between gap-3"
+                  >
+                    <div className="flex items-start gap-3">
+                      {correct ? (
+                        <Check size={14} className="text-emerald-500 mt-0.5 shrink-0" />
                       ) : (
-                        <ChevronDown size={15} className="text-zinc-400 shrink-0 mt-0.5" />
+                        <X size={14} className="text-red-400 mt-0.5 shrink-0" />
                       )}
-                    </button>
+                      <span className={`text-sm leading-snug ${correct ? 'text-zinc-500' : 'text-zinc-700'}`}>
+                        {q.question}
+                      </span>
+                    </div>
+                    {isOpen ? (
+                      <ChevronUp size={15} className="text-zinc-400 shrink-0 mt-0.5" />
+                    ) : (
+                      <ChevronDown size={15} className="text-zinc-400 shrink-0 mt-0.5" />
+                    )}
+                  </button>
 
-                    {isOpen && (
-                      <div className="px-6 pb-4 space-y-3">
-                        {chosen !== undefined && (
-                          <div className="flex items-center gap-2 text-sm">
+                  {isOpen && (
+                    <div className="px-6 pb-4 space-y-3">
+                      {chosen !== undefined && (
+                        <div className="flex items-center gap-2 text-sm">
+                          {correct ? (
+                            <Check size={13} className="text-emerald-500 shrink-0" />
+                          ) : (
                             <X size={13} className="text-red-400 shrink-0" />
-                            <span className="text-zinc-700">You answered:</span>
-                            <span className="text-red-600 font-medium">{q.options[chosen]}</span>
-                          </div>
-                        )}
+                          )}
+                          <span className="text-zinc-700">You answered:</span>
+                          <span className={`font-medium ${correct ? 'text-emerald-700' : 'text-red-600'}`}>{q.options[chosen]}</span>
+                        </div>
+                      )}
+                      {!correct && (
                         <div className="flex items-center gap-2 text-sm">
                           <Check size={13} className="text-emerald-500 shrink-0" />
                           <span className="text-zinc-700">Correct answer:</span>
                           <span className="text-emerald-700 font-medium">{q.options[q.answer]}</span>
                         </div>
-                        <div className="bg-sky-50 border border-sky-200 rounded-xl p-3">
-                          <p className="text-sm text-sky-900 leading-relaxed">{q.explanation}</p>
-                        </div>
+                      )}
+                      <div className="bg-sky-50 border border-sky-200 rounded-xl p-3">
+                        <p className="text-sm text-sky-900 leading-relaxed">{q.explanation}</p>
                       </div>
-                    )}
-                  </div>
-                )
-              })}
-            </div>
+                    </div>
+                  )}
+                </div>
+              )
+            })}
           </div>
-        )}
-
-        {missed.length === 0 && (
-          <div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 text-center">
-            <div className="text-2xl mb-2">🎯</div>
-            <p className="font-semibold text-emerald-800">Perfect score!</p>
-            <p className="text-sm text-emerald-600 mt-1">Every single question correct. Genuinely impressive.</p>
-          </div>
-        )}
+        </div>
       </div>
     </main>
   )
