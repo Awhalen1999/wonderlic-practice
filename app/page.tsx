@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/lib/store";
 import { getAccuracyPercent } from "@/lib/utils";
@@ -8,12 +8,38 @@ import NamePromptModal from "@/components/NamePromptModal";
 import { Trash2 } from "lucide-react";
 import questions from "@/data/questions.json";
 
+const HOLD_DURATION = 1500;
+
 const TOTAL_QUESTIONS = questions.length;
 
 export default function HomePage() {
   const router = useRouter();
   const { progress, setName, clearAllData } = useStore();
   const [showNameModal, setShowNameModal] = useState(false);
+  const [holdProgress, setHoldProgress] = useState(0);
+  const holdInterval = useRef<ReturnType<typeof setInterval> | null>(null);
+  const holdStart = useRef<number | null>(null);
+
+  const startHold = () => {
+    // eslint-disable-next-line react-hooks/purity
+    holdStart.current = Date.now();
+    holdInterval.current = setInterval(() => {
+      const elapsed = Date.now() - holdStart.current!;
+      const pct = Math.min((elapsed / HOLD_DURATION) * 100, 100);
+      setHoldProgress(pct);
+      if (pct >= 100) {
+        stopHold();
+        clearAllData();
+      }
+    }, 16);
+  };
+
+  const stopHold = () => {
+    if (holdInterval.current) clearInterval(holdInterval.current);
+    holdInterval.current = null;
+    holdStart.current = null;
+    setHoldProgress(0);
+  };
 
   const handleName = (name: string) => {
     if (name) setName(name);
@@ -45,6 +71,11 @@ export default function HomePage() {
               🧠
             </button>
           </div>
+          {progress.name && (
+            <p className="text-zinc-600 text-md mb-4">
+              Hey, {progress.name}! 👋
+            </p>
+          )}
           <h1 className="text-2xl font-bold text-zinc-900 tracking-tight">
             Wonderlic Practice
           </h1>
@@ -128,17 +159,28 @@ export default function HomePage() {
           </button>
         </div>
 
-        {/* Clear data */}
+        {/* Clear data — hold to delete */}
         <div className="mt-10">
           <button
-            onClick={() => {
-              if (confirm("Clear all progress? This cannot be undone."))
-                clearAllData();
-            }}
-            className="flex items-center gap-1 text-xs text-zinc-400 hover:text-red-400 transition-colors"
+            onMouseDown={startHold}
+            onMouseUp={stopHold}
+            onMouseLeave={stopHold}
+            onTouchStart={startHold}
+            onTouchEnd={stopHold}
+            className="flex flex-col items-center gap-1 text-xs text-zinc-400 hover:text-red-400 transition-colors select-none"
           >
-            <Trash2 size={11} />
-            Clear all data
+            <span className="flex items-center gap-1">
+              <Trash2 size={11} />
+              Hold to clear data
+            </span>
+            {holdProgress > 0 && (
+              <span className="w-full h-0.5 bg-zinc-200 rounded-full overflow-hidden">
+                <span
+                  className="block h-full bg-red-400 rounded-full"
+                  style={{ width: `${holdProgress}%`, transition: "none" }}
+                />
+              </span>
+            )}
           </button>
         </div>
       </main>
