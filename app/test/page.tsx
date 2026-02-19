@@ -237,9 +237,11 @@ export default function TestPage() {
 
       {/* Centered question */}
       <div className="flex-1 flex flex-col items-center justify-center px-4 py-6 max-w-2xl mx-auto w-full">
-        <p className="text-lg font-semibold text-zinc-900 leading-relaxed text-center mb-8 max-w-lg">
-          {question.question}
-        </p>
+        <div className="w-full max-w-lg mb-8">
+          <p className="text-lg font-semibold text-zinc-900 leading-relaxed text-left">
+            {question.question}
+          </p>
+        </div>
 
         <div className="w-full flex flex-col gap-2.5 max-w-md">
           {question.options.map((opt, idx) => (

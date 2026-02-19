@@ -180,7 +180,7 @@ export default function ResultsPage() {
                   </button>
 
                   {isOpen && (
-                    <div className="px-6 pb-4 space-y-3">
+                    <div className="px-6 pb-3 space-y-3">
                       {chosen !== undefined && (
                         <div className="flex items-center gap-2 text-sm">
                           {correct ? (
@@ -199,7 +199,7 @@ export default function ResultsPage() {
                           <span className="text-emerald-700 font-medium">{q.options[q.answer]}</span>
                         </div>
                       )}
-                      <div className="bg-sky-50 border border-sky-200 rounded-xl p-3">
+                      <div className="bg-sky-50 border border-sky-200 rounded-xl p-3 mt-3">
                         <p className="text-sm text-sky-900 leading-relaxed">{q.explanation}</p>
                       </div>
                     </div>
