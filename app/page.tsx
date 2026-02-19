@@ -57,6 +57,29 @@ export default function HomePage() {
 
         {/* Mode buttons */}
         <div className="w-full max-w-sm flex flex-col gap-3">
+          {/* Stats */}
+          {progress.totalAnswered > 0 && (
+            <div className="grid grid-cols-3 gap-2">
+              {[
+                { label: "Answered", value: progress.totalAnswered },
+                { label: "Correct", value: `${accuracy}%` },
+                { label: "Tests", value: progress.sessionsCompleted },
+              ].map(({ label, value }) => (
+                <div
+                  key={label}
+                  className="bg-white border border-sky-100 rounded-xl py-3 text-center"
+                >
+                  <div className="text-base font-bold text-zinc-900">
+                    {value}
+                  </div>
+                  <div className="text-[10px] text-zinc-600 mt-0.5">
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
           {/* Practice */}
           <button
             onClick={() => router.push("/practice")}
@@ -103,29 +126,6 @@ export default function HomePage() {
               <span className="text-2xl">⏱️</span>
             </div>
           </button>
-
-          {/* Stats */}
-          {progress.totalAnswered > 0 && (
-            <div className="grid grid-cols-3 gap-2 mt-1">
-              {[
-                { label: "Answered", value: progress.totalAnswered },
-                { label: "Correct", value: `${accuracy}%` },
-                { label: "Tests", value: progress.sessionsCompleted },
-              ].map(({ label, value }) => (
-                <div
-                  key={label}
-                  className="bg-white border border-sky-100 rounded-xl py-3 text-center"
-                >
-                  <div className="text-base font-bold text-zinc-900">
-                    {value}
-                  </div>
-                  <div className="text-[10px] text-zinc-600 mt-0.5">
-                    {label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
         </div>
 
         {/* Clear data */}

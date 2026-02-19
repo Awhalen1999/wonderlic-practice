@@ -36,12 +36,9 @@ type Mode = "pick" | "session";
 
 export default function PracticePage() {
   const router = useRouter();
-  const { progress, recordAnswer, advancePracticeIndex } = useStore();
+  const { progress, recordAnswer } = useStore();
 
   const [mode, setMode] = useState<Mode>("pick");
-  const [selectedCategory, setSelectedCategory] = useState<
-    QuestionCategory | "all"
-  >("all");
   const [sessionQuestions, setSessionQuestions] = useState<Question[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -52,7 +49,6 @@ export default function PracticePage() {
     headline: string;
     message: string;
   } | null>(null);
-  const [totalAnsweredThisSession, setTotalAnsweredThisSession] = useState(0);
 
   const question = sessionQuestions[currentIndex];
   const pct =
@@ -68,25 +64,19 @@ export default function PracticePage() {
     return counts;
   }, []);
 
-  const startSession = useCallback(
+    const startSession = useCallback(
     (category: QuestionCategory | "all") => {
       const filtered =
         category === "all"
           ? allQuestions
           : allQuestions.filter((q) => q.category === category);
-      const ordered =
-        category === "all"
-          ? filtered.slice(progress.practiceIndex) // resume position for "all"
-          : shuffle(filtered); // shuffle when filtering by category
-      setSessionQuestions(ordered.length > 0 ? ordered : shuffle(filtered));
-      setSelectedCategory(category);
+      setSessionQuestions(shuffle(filtered));
       setCurrentIndex(0);
       setSelected(null);
       setSubmitted(false);
-      setTotalAnsweredThisSession(0);
       setMode("session");
     },
-    [progress.practiceIndex],
+    [],
   );
 
   const handleSelect = (idx: number) => {
@@ -99,10 +89,8 @@ export default function PracticePage() {
     setSubmitted(true);
     const correct = selected === question.answer;
     recordAnswer(question.id, question.category, correct);
-    if (selectedCategory === "all") advancePracticeIndex();
     const newStreak = correct ? streak + 1 : 0;
     setStreak(newStreak);
-    setTotalAnsweredThisSession((n) => n + 1);
     const cp = getStreakCheckpoint(newStreak, progress.name);
     if (cp) setCheckpoint(cp);
   }, [
@@ -112,29 +100,20 @@ export default function PracticePage() {
     recordAnswer,
     streak,
     progress.name,
-    selectedCategory,
-    advancePracticeIndex,
   ]);
 
   const handleNext = useCallback(() => {
     const nextIndex = currentIndex + 1;
-    if (selectedCategory === "all") {
-      const cp = getCheckpoint(nextIndex, progress.name);
-      if (cp) setCheckpoint(cp);
-    }
+    const cp = getCheckpoint(nextIndex, progress.name);
+    if (cp) setCheckpoint(cp);
     if (nextIndex >= sessionQuestions.length) {
-      // wrap around for category mode, go back to pick for all
-      if (selectedCategory === "all") {
-        setMode("pick");
-        return;
-      }
       setCurrentIndex(0);
     } else {
       setCurrentIndex(nextIndex);
     }
     setSelected(null);
     setSubmitted(false);
-  }, [currentIndex, sessionQuestions.length, selectedCategory, progress.name]);
+  }, [currentIndex, sessionQuestions.length, progress.name]);
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -183,62 +162,31 @@ export default function PracticePage() {
               What do you want to practice?
             </h1>
             <p className="text-sm text-zinc-500 mt-1">
-              {progress.practiceIndex > 0
-                ? `You're on Q${progress.practiceIndex + 1} for "All"`
-                : "Pick a category or run through everything."}
+              Pick a category or run through everything.
             </p>
           </div>
 
           <div className="flex flex-col gap-2.5">
             {CATEGORIES.map(({ value, label, emoji }) => {
               const count = categoryCount[value] ?? 0;
-              const isAll = value === "all";
               return (
                 <button
                   key={value}
                   onClick={() => startSession(value)}
-                  className={`w-full flex items-center justify-between px-5 py-4 rounded-2xl border text-left transition-all duration-150 active:scale-[0.98] ${
-                    isAll
-                      ? "bg-indigo-600 hover:bg-indigo-500 border-indigo-600 text-white"
-                      : "bg-white hover:bg-sky-50 border-sky-200 hover:border-sky-400 text-zinc-900"
-                  }`}
+                  className="w-full flex items-center justify-between px-5 py-4 rounded-2xl border text-left transition-all duration-150 active:scale-[0.98] bg-white hover:bg-sky-50 border-sky-200 hover:border-sky-400 text-zinc-900"
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-xl">{emoji}</span>
                     <div>
-                      <div
-                        className={`font-semibold text-sm ${isAll ? "text-white" : "text-zinc-900"}`}
-                      >
+                      <div className="font-semibold text-sm text-zinc-900">
                         {label}
                       </div>
-                      <div
-                        className={`text-xs mt-0.5 ${isAll ? "text-indigo-200" : "text-zinc-500"}`}
-                      >
-                        {count} questions
-                        {!isAll
-                          ? " · shuffled"
-                          : progress.practiceIndex > 0
-                            ? " · resume"
-                            : ""}
+                      <div className="text-xs mt-0.5 text-zinc-500">
+                        {count} questions · shuffled
                       </div>
                     </div>
                   </div>
-                  {isAll && progress.practiceIndex > 0 && (
-                    <div className="text-right">
-                      <div className="text-xs text-indigo-200 mb-1">
-                        Q{progress.practiceIndex + 1}
-                      </div>
-                      <div className="w-16 bg-indigo-500/40 rounded-full h-1">
-                        <div
-                          className="bg-white/70 h-1 rounded-full"
-                          style={{
-                            width: `${Math.min((progress.practiceIndex / allQuestions.length) * 100, 100)}%`,
-                          }}
-                        />
-                      </div>
-                    </div>
-                  )}
-                  {!isAll && <Shuffle size={14} className="text-zinc-300" />}
+                  <Shuffle size={14} className="text-zinc-300" />
                 </button>
               );
             })}
