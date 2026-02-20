@@ -84,7 +84,7 @@ export default function HomePage() {
           </div>
           {progress.name && (
             <p className="text-zinc-600 text-md mb-4">
-              Hey, {progress.name}! 👋
+              Hey, {progress.name}! {progress.name?.toLowerCase() === "ericaa" ? "🦴" : "👋"}
             </p>
           )}
           <h1 className="text-2xl font-bold text-zinc-900 tracking-tight">
