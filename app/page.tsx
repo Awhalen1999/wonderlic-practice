@@ -78,7 +78,7 @@ export default function HomePage() {
                   className="w-full h-full object-contain"
                 />
               ) : (
-                <span className="text-4xl">🧠</span>
+                <span className="text-4xl leading-none w-14 h-14 flex items-center justify-center">🧠</span>
               )}
             </button>
           </div>
