@@ -30,6 +30,7 @@ const CATEGORIES: {
   { value: "verbal", label: "Verbal", emoji: "📝" },
   { value: "logic", label: "Logic", emoji: "🧩" },
   { value: "general", label: "General", emoji: "🌐" },
+  { value: "spatial", label: "Spatial", emoji: "📐" },
 ];
 
 type Mode = "pick" | "session";
