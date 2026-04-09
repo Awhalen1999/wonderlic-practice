@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Clock } from 'lucide-react'
 import { formatTime } from '@/lib/utils'
 
@@ -11,28 +11,28 @@ type Props = {
 
 export default function Timer({ totalSeconds, onExpire }: Props) {
   const [remaining, setRemaining] = useState(totalSeconds)
+  const onExpireRef = useRef(onExpire)
+
+  useEffect(() => {
+    onExpireRef.current = onExpire
+  })
 
   useEffect(() => {
     setRemaining(totalSeconds)
   }, [totalSeconds])
 
   useEffect(() => {
-    if (remaining <= 0) {
-      onExpire()
-      return
-    }
     const id = setInterval(() => {
       setRemaining((r) => {
         if (r <= 1) {
           clearInterval(id)
-          onExpire()
+          onExpireRef.current()
           return 0
         }
         return r - 1
       })
     }, 1000)
     return () => clearInterval(id)
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const isWarning = remaining <= 300 && remaining > 120
